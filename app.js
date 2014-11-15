@@ -12,13 +12,24 @@ var cookie = require('cookie');
 /* Middleware */
 var compression = require('compression');
 var session = require('cookie-session');
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 app.use(compression());
 app.use(session({
- keys: 'iTerm2'
+  keys: [ 'iTerm2', 'Golang' ]
 }));
 
+app.use(function (req, res, next) {
+  var n = req.session.views || 0
+  req.session.views = ++n
+  next();
+});
+
 app.use(express.static(__dirname + '/public'));
+
+app.get('/test', function(req, res) {
+  console.log(req.session);
+  res.send('test');
+});
 
 server.listen(8000);
 
@@ -34,7 +45,7 @@ io.on('connection', function(socket) {
 
   socket.on('message', function(data) {
     var cookies = cookie.parse(socket.handshake.headers.cookie);
-    data.id = cookies['connect.sid'];
+    data.id = cookies['express:sess'];
     mostRecent[i] = data;
     i = (i+1)%50;
     socket.broadcast.emit('update', data);
