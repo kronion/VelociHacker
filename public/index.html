@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang='en-US'>
+  <head>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>VelociHacker</title>
+    <link rel='stylesheet' type='text/css' href='css/style.css'/>
+    <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js'></script>
+    <script type="text/javascript">
+      function initialize() {
+        var quad = new google.maps.LatLng(40.34999469, -74.65260386); 
+
+        var mapOptions = {
+          center: quad,
+          zoom: 18,
+          panControl: false,
+          zoomControl: false,
+          streetViewControl: false
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        startSockets(map);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id='title'>
+      <h1>VelociHacker</h1>
+    </div>
+    <div id="map-canvas"></div>
+    <script src='/socket.io/socket.io.js'></script>
+    <script type="text/javascript" src='js/speed.js'></script>
+    <script src='js/sockets.js'></script>
+  </body>
+</html>

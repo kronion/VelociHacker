@@ -1,0 +1,27 @@
+{
+  "name": "VelociHacker",
+  "version": "1.0.0",
+  "description": "Because you ain't got time to worry about spotty internet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kronion/VelociHacker"
+  },
+  "author": "Collin Stedman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kronion/VelociHacker/issues"
+  },
+  "homepage": "https://github.com/kronion/VelociHacker",
+  "dependencies": {
+    "compression": "^1.2.0",
+    "cookie": "^0.1.2",
+    "cookie-session": "^1.1.0",
+    "express": "4.x",
+    "mongoose": "^3.8.19",
+    "socket.io": "1.x"
+  }
+}

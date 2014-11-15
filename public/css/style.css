@@ -1,0 +1,32 @@
+html, body, #map-canvas {
+  height: 100%;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#title {
+  position: absolute;
+  margin: 20px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  background: #fff;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+#title > h1 {
+  color: #ee7f2d;
+  font-weight: 300;
+}
+
+.gm-style-iw {
+  white-space: nowrap;
+}
