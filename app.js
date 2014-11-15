@@ -19,17 +19,14 @@ app.use(session({
 }));
 
 app.use(function (req, res, next) {
-  var n = req.session.views || 0
-  req.session.views = ++n
+  if (req.session.isNew) {
+    req.session = { initialized: true,
+                    id: Math.random() };
+  }
   next();
 });
 
 app.use(express.static(__dirname + '/public'));
-
-app.get('/test', function(req, res) {
-  console.log(req.session);
-  res.send('test');
-});
 
 server.listen(8000);
 
