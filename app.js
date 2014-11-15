@@ -49,5 +49,6 @@ io.on('connection', function(socket) {
     mostRecent[i] = data;
     i = (i+1)%50;
     socket.broadcast.emit('update', data);
+    socket.emit('update', data);
   });
 });
